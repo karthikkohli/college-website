@@ -1,0 +1,97 @@
+ :root{
+      --accent:#2b8aef;
+      --dark:#0f1724;
+      --muted:#6b7280;
+      --card:#f8fafc;
+      --glass: rgba(255,255,255,0.06);
+      --radius:12px;
+      --max-width:1100px;
+      --container-padding:1.25rem;
+      --shadow: 0 8px 24px rgba(15,23,36,0.08);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#f7fbff 0%, #ffffff 100%);color:var(--dark);}
+
+    a{color:var(--accent);text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+
+    .wrap{max-width:var(--max-width);margin:0 auto;padding:var(--container-padding)}
+
+    /* header */
+    header{position:sticky;top:0;background:rgba(255,255,255,0.8);backdrop-filter:blur(6px);box-shadow:0 1px 0 rgba(15,23,36,0.04);z-index:40}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:0.6rem 0}
+    .brand{display:flex;gap:0.75rem;align-items:center}
+    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#6dd3ff);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    .brand h1{font-size:1rem;margin:0}
+    nav ul{list-style:none;display:flex;gap:1rem;margin:0;padding:0}
+    nav li{padding:0.35rem 0.5rem;border-radius:8px}
+    nav li a{font-weight:600;color:var(--dark)}
+    .cta{background:var(--accent);color:white;padding:0.45rem 0.85rem;border-radius:10px;font-weight:700}
+
+    /* mobile menu (checkbox hack) */
+    .menu-toggle{display:none}
+    .hamburger{display:none;cursor:pointer;padding:0.35rem;border-radius:8px}
+
+    /* hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:2rem;padding:3rem 0;align-items:center}
+    .hero h2{font-size:2rem;margin:0 0 0.5rem}
+    .hero p{color:var(--muted);margin:0 0 1.25rem}
+    .features{display:flex;gap:0.75rem;flex-wrap:wrap}
+    .pill{background:var(--card);padding:0.5rem 0.75rem;border-radius:999px;font-weight:600;box-shadow:var(--shadow)}
+
+    .hero-card{background:linear-gradient(180deg,rgba(43,138,239,0.08),rgba(109,211,255,0.02));padding:1.25rem;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .hero-card h3{margin:0 0 0.5rem}
+    .stats{display:flex;gap:1rem;margin-top:0.75rem}
+    .stat{background:white;padding:0.6rem;border-radius:10px;flex:1;text-align:center}
+    .stat b{display:block;font-size:1.1rem}
+
+    /* sections */
+    section{padding:2rem 0}
+    h3.section-title{margin:0 0 1rem;font-size:1.25rem}
+
+    /* departments grid */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .card{background:white;padding:1rem;border-radius:12px;box-shadow:var(--shadow)}
+    .dept .icon{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;margin-bottom:0.75rem}
+
+    /* faculty list */
+    .faculty{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .teacher{display:flex;gap:0.75rem;align-items:center}
+    .avatar{width:64px;height:64px;border-radius:10px;background:var(--glass);display:flex;align-items:center;justify-content:center}
+
+    /* courses table */
+    table{width:100%;border-collapse:collapse;background:white;border-radius:10px;overflow:hidden;box-shadow:var(--shadow)}
+    th,td{padding:0.75rem 1rem;text-align:left;border-bottom:1px solid #f1f5f9}
+    th{background:#fbfdff}
+
+    /* contact */
+    .contact-form{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem}
+    .input, textarea{padding:0.7rem;border-radius:8px;border:1px solid #e6eefb}
+    textarea{grid-column:1/-1;min-height:110px}
+
+    /* footer */
+    footer{padding:1.5rem 0;color:var(--muted);font-size:0.95rem}
+
+    /* responsive */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr 1fr}
+      .grid,.faculty{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:720px){
+      .wrap{padding:0.75rem}
+      nav ul{display:none}
+      .hamburger{display:block}
+      .menu-toggle:checked + nav ul{display:flex;flex-direction:column;background:white;padding:0.75rem;border-radius:8px;position:absolute;left:var(--container-padding);right:var(--container-padding);top:64px;box-shadow:var(--shadow)}
+      .hero{grid-template-columns:1fr;gap:1.25rem;padding:1.5rem 0}
+      .hero-card{order:2}
+      .grid,.faculty{grid-template-columns:1fr}
+      .contact-form{grid-template-columns:1fr}
+    }
+
+    /* small utilities */
+    .muted{color:var(--muted)}
+    .center{text-align:center}
+    .btn{display:inline-block;padding:0.55rem 0.9rem;border-radius:10px;font-weight:700}
+    .btn-outline{border:1px solid var(--accent);color:var(--accent);background:transparent}
